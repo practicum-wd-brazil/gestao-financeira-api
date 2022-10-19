@@ -1,15 +1,7 @@
-const { Schema, model } = require("mongoose");
+const Record = require("../models/record.model");
 
 const CREATED = 201;
 const ACCEPTED = 202;
-
-const recordSchema = new Schema({
-  date: Date,
-  description: String,
-  value: Number,
-});
-
-const Record = model("Record", recordSchema);
 
 const getRecords = async (req, res) => {
   const records = await Record.find();
