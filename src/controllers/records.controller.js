@@ -9,6 +9,9 @@ const getRecords = async (req, res) => {
 };
 
 const createRecord = async (req, res) => {
+  if (req.body.id) {
+    throw new Error("Id param not needed");
+  }
   const record = await Record.create(req.body);
   res.status(CREATED).json(record);
 };
